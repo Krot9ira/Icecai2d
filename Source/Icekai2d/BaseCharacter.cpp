@@ -3,11 +3,22 @@
 
 #include "BaseCharacter.h"
 
+
 // Sets default values
 ABaseCharacter::ABaseCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	if (!HealthComponent) 
+	{
+		HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health component"));
+	}
+
+	if (!StatsComponent)
+	{
+		//StatsComponent = CreateDefaultSubobject<UStatsComponent>(Text("Stat component"));
+	}
 
 }
 
@@ -32,3 +43,13 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 }
 
+float ABaseCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
+{
+	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+	HealthComponent->RemoveHealth(DamageAmount);
+	if (HealthComponent->GetHealth() <= 0)
+	{
+		Destroy();
+	}
+	return HealthComponent->GetHealth();
+}

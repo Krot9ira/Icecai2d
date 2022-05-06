@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include <Icekai2d/HealthComponent.h>
 #include "BaseCharacter.generated.h"
+#include <Icekai2d/StatsComponent.h>
 
 UCLASS()
 class ICEKAI2D_API ABaseCharacter : public ACharacter
@@ -19,6 +21,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnyWhere)
+		UHealthComponent* HealthComponent;
+	UPROPERTY(EditAnywhere)
+		UStatsComponent* StatsComponent;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -29,4 +36,5 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 };
