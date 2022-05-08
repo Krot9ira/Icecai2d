@@ -17,7 +17,7 @@ ABaseCharacter::ABaseCharacter()
 
 	if (!StatsComponent)
 	{
-		//StatsComponent = CreateDefaultSubobject<UStatsComponent>(Text("Stat component"));
+		StatsComponent = CreateDefaultSubobject<UStatsComponent>(TEXT("Stat component"));
 	}
 
 }

@@ -5,8 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include <Icekai2d/HealthComponent.h>
-#include "BaseCharacter.generated.h"
 #include <Icekai2d/StatsComponent.h>
+#include "BaseCharacter.generated.h"
+
 
 UCLASS()
 class ICEKAI2D_API ABaseCharacter : public ACharacter
@@ -21,7 +22,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnyWhere)
+	UPROPERTY(EditAnyWhere, BlueprintReadOnly)
 		UHealthComponent* HealthComponent;
 	UPROPERTY(EditAnywhere)
 		UStatsComponent* StatsComponent;

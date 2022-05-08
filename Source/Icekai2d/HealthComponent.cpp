@@ -11,7 +11,7 @@ UHealthComponent::UHealthComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	
-	Health = MaxHealth;
+	
 	// ...
 }
 
@@ -21,6 +21,7 @@ void UHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	Health = MaxHealth;
 	// ...
 	
 }
