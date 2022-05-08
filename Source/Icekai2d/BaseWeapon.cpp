@@ -50,3 +50,8 @@ int32 ABaseWeapon::GetDamage()
 	return int32(Damage);
 }
 
+int32 ABaseWeapon::GetRange()
+{
+	return int32(Range);
+}
+

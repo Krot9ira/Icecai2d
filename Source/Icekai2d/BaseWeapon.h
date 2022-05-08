@@ -42,6 +42,8 @@ public:
 		void UpdateDamage(int32 NewDamage);
 	UFUNCTION(BlueprintCallable)
 		int32 GetDamage();
+	UFUNCTION(BlueprintCallable)
+		int32 GetRange();
 	
 
 };
