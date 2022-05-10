@@ -23,13 +23,14 @@ protected:
 	UPROPERTY(VisibleAnyWhere)
 		int32 AttackSpeed;
 	UPROPERTY(VisibleAnyWhere)
-		int32 Attack;
+		int32 AttackModify;
 	UPROPERTY(VisibleAnyWhere)
 		int32 SpeedModify;
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	UFUNCTION(BlueprintCallable)
+	int32 GetAttackModify();
 		
 };

@@ -32,3 +32,8 @@ void UStatsComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 	// ...
 }
 
+int32 UStatsComponent::GetAttackModify()
+{
+	return int32(AttackModify);
+}
+

@@ -24,7 +24,7 @@ protected:
 
 	UPROPERTY(EditAnyWhere, BlueprintReadOnly)
 		UHealthComponent* HealthComponent;
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		UStatsComponent* StatsComponent;
 
 public:	
